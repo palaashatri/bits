@@ -1,0 +1,5 @@
+Dependencies for Project '2025NS01071_ESD_SITUATIONAL_PROJECT_1', Target 'Target 1': (DO NOT MODIFY !)
+F (.\LPC2300.s)(0x559CFDE8)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -ID:\Keil\ARM\RV31\INC-ID:\Keil\ARM\CMSIS\Include-ID:\Keil\ARM\INC\Philips--pd "__UVISION_VERSION SETA 526"--list .\listings\lpc2300.lst --xref -o .\objects\lpc2300.o --depend .\objects\lpc2300.d)
+F (.\main_lpc.c)(0x69020BE1)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil\ARM\RV31\INC-ID:\Keil\ARM\CMSIS\Include-ID:\Keil\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\main_lpc.o --omf_browse .\objects\main_lpc.crf --depend .\objects\main_lpc.d)
+I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x599EFE66)
+I (D:\Keil\ARM\ARMCC\include\stddef.h)(0x599EFE64)

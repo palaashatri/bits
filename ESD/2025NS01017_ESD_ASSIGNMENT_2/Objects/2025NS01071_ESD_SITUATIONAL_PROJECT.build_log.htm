@@ -21,22 +21,26 @@ Target DLL:      UL2CM3.DLL V1.161.6.0
 Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-D:\BITS\2025NS01017\ESD Situational Project\2025NS01071_ESD_SITUATIONAL_PROJECT.uvprojx
+D:\BITS\2025NS01017\ESD\2025NS01017_ESD_ASSIGNMENT_2\2025NS01071_ESD_SITUATIONAL_PROJECT.uvprojx
 Project File Date:  10/29/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-assembling startup_stm32f401xe.s...
-compiling main.c...
-main.c(218): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      uint16_t ccr_val = (uint16_t)(((float)duty / 100.0) * pwm_period);
-main.c: 1 warning, 0 errors
+assembling startup_stm32f407xx.s...
 compiling system_stm32f4xx.c...
+compiling main.c...
+compiling stm32f4xx_hal_gpio.c...
+compiling stm32f4xx_hal.c...
+compiling stm32f4xx_hal_pwr_ex.c...
+compiling stm32f4xx_hal_pwr.c...
+compiling stm32f4xx_hal_cortex.c...
+compiling stm32f4xx_hal_rcc_ex.c...
+compiling stm32f4xx_hal_rcc.c...
 linking...
-Program Size: Code=7560 RO-data=612 RW-data=4 ZI-data=1636  
+Program Size: Code=5712 RO-data=584 RW-data=0 ZI-data=1632  
 FromELF: creating hex file...
-".\Objects\2025NS01071_ESD_SITUATIONAL_PROJECT.axf" - 0 Error(s), 1 Warning(s).
+".\Objects\2025NS01071_ESD_SITUATIONAL_PROJECT.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,24 +54,64 @@ Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.0.pack
                 Keil.STM32F4xx_DFP.2.17.0
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: STM32Cube Framework Version: 1.0.0
+   * Component: Classic Version: 1.8.1
+   * Component: Common Version: 1.8.1
+   * Component: Cortex Version: 1.8.1
+   * Component: GPIO Version: 1.8.1
+   * Component: PWR Version: 1.8.1
+   * Component: RCC Version: 1.8.1
    * Component: Startup Version: 2.6.3
 
 <h2>Collection of Component include folders:</h2>
+  .\RTE\Device\STM32F407VGTx
   .\RTE\_Target_1
   D:\Keil\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
   D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  D:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\2.17.0\Drivers\STM32F4xx_HAL_Driver\Inc
 
 <h2>Collection of Component Files used:</h2>
 
+   * Component: ::Device:STM32Cube Framework:1.0.0 (API)
+
    * Component: ARM::CMSIS:CORE:5.1.2
 
+   * Component: Keil::Device:STM32Cube Framework:Classic:1.8.1
+      Source file:   MDK\Templates\Src\stm32f4xx_hal_msp.c
+      Include file:  MDK\Templates\Inc\stm32f4xx_it.h
+      Include file:  CMSIS\Driver\Config\RTE_Device.h
+      Include file:  MDK\Templates\Inc\stm32f4xx_hal_conf.h
+      Include file:  MDK\Templates_LL\Inc\main.h
+      Include file:  MDK\Templates\Inc\main.h
+      Source file:   MDK\Templates\Src\main.c
+      Source file:   MDK\Templates\Src\stm32f4xx_it.c
+      Source file:   MDK\Templates_LL\Src\main.c
+
+   * Component: Keil::Device:STM32Cube HAL:Common:1.8.1
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c
+      Include file:  Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h
+
+   * Component: Keil::Device:STM32Cube HAL:Cortex:1.8.1
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_cortex.c
+
+   * Component: Keil::Device:STM32Cube HAL:GPIO:1.8.1
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_gpio.c
+
+   * Component: Keil::Device:STM32Cube HAL:PWR:1.8.1
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr.c
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr_ex.c
+
+   * Component: Keil::Device:STM32Cube HAL:RCC:1.8.1
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc.c
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.c
+
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
-      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f401xe.s
-      Source file:   MDK\Device\Source\ARM\STM32F401xx_OPT.s
-Build Time Elapsed:  00:00:00
+      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
