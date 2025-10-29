@@ -1,0 +1,2 @@
+Dependencies for Project 'ASSIGNMENT_1_Q2', Target 'Target 1': (DO NOT MODIFY !)
+F (.\COUNT0SAND1S.s)(0x68C5337F)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -ID:\Keil\ARM\RV31\INC-ID:\Keil\ARM\CMSIS\Include-ID:\Keil\ARM\INC\Philips--pd "__UVISION_VERSION SETA 526"--list .\listings\count0sand1s.lst --xref -o .\objects\count0sand1s.o --depend .\objects\count0sand1s.d)

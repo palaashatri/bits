@@ -1,0 +1,7 @@
+--cpu ARM7TDMI
+".\objects\q1.o"
+".\objects\q1b.o"
+".\objects\q1a.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x40000000 --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\ASSIGNMENT_1_Q1.map" -o .\Objects\ASSIGNMENT_1_Q1.axf

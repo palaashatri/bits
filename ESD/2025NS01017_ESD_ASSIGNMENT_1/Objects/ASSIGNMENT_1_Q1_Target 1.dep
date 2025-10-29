@@ -1,0 +1,4 @@
+Dependencies for Project 'ASSIGNMENT_1_Q1', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Q1.s)(0x68C52523)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -ID:\Keil\ARM\RV31\INC-ID:\Keil\ARM\CMSIS\Include-ID:\Keil\ARM\INC\Philips--pd "__UVISION_VERSION SETA 526"--list .\listings\q1.lst --xref -o .\objects\q1.o --depend .\objects\q1.d)
+F (.\Q1b.s)(0x68C51AEA)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -ID:\Keil\ARM\RV31\INC-ID:\Keil\ARM\CMSIS\Include-ID:\Keil\ARM\INC\Philips--pd "__UVISION_VERSION SETA 526"--list .\listings\q1b.lst --xref -o .\objects\q1b.o --depend .\objects\q1b.d)
+F (.\Q1a.s)(0x68C51ACF)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -ID:\Keil\ARM\RV31\INC-ID:\Keil\ARM\CMSIS\Include-ID:\Keil\ARM\INC\Philips--pd "__UVISION_VERSION SETA 526"--list .\listings\q1a.lst --xref -o .\objects\q1a.o --depend .\objects\q1a.d)

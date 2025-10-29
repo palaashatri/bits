@@ -1,0 +1,152 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Vector Table
+    2 00000000                 AREA             RESET, DATA, READONLY
+    3 00000000                 EXPORT           __Vectors
+    4 00000000         __Vectors
+    5 00000000 20002000        DCD              0x20002000  ; Main Stack Pointe
+                                                            r Top
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000         DCD              0, 0, 0, 0, 0, 0, 0, 0, 0 
+                                                            ; Reserved Vectors
+    8 0000002C 00000000        DCD              SVC_Handler
+    9 00000030         
+   10 00000030         ; Main Application
+   11 00000030                 AREA             MYCODE, CODE, READONLY
+   12 00000000                 ENTRY
+   13 00000000                 EXPORT           Reset_Handler
+   14 00000000         Reset_Handler
+   15 00000000         ; Initialize Process Stack Pointer (PSP)
+   16 00000000 480F            LDR              R0, =0x20001000
+   17 00000002 F380 8809       MSR              PSP, R0
+   18 00000006         
+   19 00000006         ; Switch to unprivileged Thread Mode using PSP
+   20 00000006 F04F 0002       MOV              R0, #2
+   21 0000000A F380 8814       MSR              CONTROL, R0
+   22 0000000E         
+   23 0000000E         ; Load parameters and call SVC
+   24 0000000E F240 30F9       LDR              R0, =1017   ; Parameter 1 from 
+                                                            BITS ID
+   25 00000012 F240 31F9       LDR              R1, =1017   ; Parameter 2 from 
+                                                            BITS ID
+   26 00000016 DF11            SVC              #17         ; SVC number from B
+                                                            ITS ID
+   27 00000018         
+   28 00000018         STOP
+   29 00000018 E7FE            B                STOP
+   30 0000001A         
+   31 0000001A         ; SVC Exception Handler
+   32 0000001A         SVC_Handler
+   33 0000001A         ; Get the PSP value
+   34 0000001A F01E 0F04       TST              LR, #4
+   35 0000001E BF18 F3EF 
+              8009             MRSNE            R0, PSP
+   36 00000024         
+   37 00000024         ; Extract the SVC immediate number
+   38 00000024 6981            LDR              R1, [R0, #24]
+   39 00000026 F811 1C02       LDRB             R1, [R1, #-2]
+   40 0000002A         
+   41 0000002A         ; Load parameters and BITS ID for comparison
+   42 0000002A F04F 0211       LDR              R2, =17
+   43 0000002E 4291            CMP              R1, R2
+   44 00000030 6802            LDR              R2, [R0, #0]
+   45 00000032 6843            LDR              R3, [R0, #4]
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   46 00000034         
+   47 00000034         ; Perform operation based on comparison
+   48 00000034 BF0C 18D2       ADDEQ            R2, R2, R3
+   49 00000038 1AD2            SUBNE            R2, R2, R3
+   50 0000003A         
+   51 0000003A         ; Store result and return
+   52 0000003A 6002            STR              R2, [R0, #0]
+   53 0000003C 4770            BX               LR
+   54 0000003E         
+   55 0000003E                 END
+              00 00 20001000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\svctest.d -o.\objects\svctest.o -I.\RTE\_Target_1 -ID
+:\Keil\ARM\PACK\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Inc
+lude -ID:\Keil\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVI
+SION_VERSION SETA 526" --predefine="STM32F407xx SETA 1" --list=.\listings\svcte
+st.lst SVCTEST.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file SVCTEST.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file SVCTEST.s
+   Uses
+      At line 3 in file SVCTEST.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 11 in file SVCTEST.s
+   Uses
+      None
+Comment: MYCODE unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 14 in file SVCTEST.s
+   Uses
+      At line 6 in file SVCTEST.s
+      At line 13 in file SVCTEST.s
+
+STOP 00000018
+
+Symbol: STOP
+   Definitions
+      At line 28 in file SVCTEST.s
+   Uses
+      At line 29 in file SVCTEST.s
+Comment: STOP used once
+SVC_Handler 0000001A
+
+Symbol: SVC_Handler
+   Definitions
+      At line 32 in file SVCTEST.s
+   Uses
+      At line 8 in file SVCTEST.s
+Comment: SVC_Handler used once
+4 symbols
+342 symbols in table

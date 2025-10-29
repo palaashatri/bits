@@ -1,0 +1,90 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         START
+    4 00000000 E59F2024        LDR              R2, =1017   ; Load your number 
+                                                            (last 5 digits of I
+                                                            D)
+    5 00000004 E3A00000        MOV              R0, #0      ; R0 will store the
+                                                             count of 0s
+    6 00000008 E3A01000        MOV              R1, #0      ; R1 will store the
+                                                             count of 1s
+    7 0000000C         
+    8 0000000C         ; Check if the number is zero to begin with. If so, skip
+                        to end.
+    9 0000000C E3520000        CMP              R2, #0
+   10 00000010 0A000004        BEQ              STOP
+   11 00000014         
+   12 00000014         LOOP
+   13 00000014         ; Check the last bit and update the Z flag
+   14 00000014 E2124001        ANDS             R4, R2, #1
+   15 00000018         
+   16 00000018         ; If the result was 0 (EQ), increment the zero counter.
+   17 00000018 02800001        ADDEQ            R0, R0, #1
+   18 0000001C         ; If the result was not 0 (NE), increment the one counte
+                       r.
+   19 0000001C 12811001        ADDNE            R1, R1, #1
+   20 00000020         
+   21 00000020         ; Shift the number right by 1 and UPDATE THE FLAGS (crit
+                       ical!)
+   22 00000020 E1B020A2        MOVS             R2, R2, LSR #1
+   23 00000024         
+   24 00000024         ; Branch back to LOOP if R2 is Not Equal to zero.
+   25 00000024 1AFFFFFA        BNE              LOOP
+   26 00000028         
+   27 00000028         STOP
+   28 00000028 EAFFFFFE        B                STOP        ; End of program
+   29 0000002C         
+   30 0000002C                 END
+              000003F9 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\count0sand1s.d -o.\objects\count0sand1s.o -ID:\Keil\ARM\RV31\INC -ID:\Ke
+il\ARM\CMSIS\Include -ID:\Keil\ARM\INC\Philips --predefine="__EVAL SETA 1" --pr
+edefine="__UVISION_VERSION SETA 526" --list=.\listings\count0sand1s.lst COUNT0S
+AND1S.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOOP 00000014
+
+Symbol: LOOP
+   Definitions
+      At line 12 in file COUNT0SAND1S.s
+   Uses
+      At line 25 in file COUNT0SAND1S.s
+Comment: LOOP used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file COUNT0SAND1S.s
+   Uses
+      None
+Comment: RESET unused
+START 00000000
+
+Symbol: START
+   Definitions
+      At line 3 in file COUNT0SAND1S.s
+   Uses
+      None
+Comment: START unused
+STOP 00000028
+
+Symbol: STOP
+   Definitions
+      At line 27 in file COUNT0SAND1S.s
+   Uses
+      At line 10 in file COUNT0SAND1S.s
+      At line 28 in file COUNT0SAND1S.s
+
+4 symbols
+338 symbols in table
